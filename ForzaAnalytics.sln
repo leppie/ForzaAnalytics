@@ -3,7 +3,26 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.32916.344
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForzaAnalytics", "ForzaAnalytics\ForzaAnalytics.csproj", "{371FFD8F-9410-47F0-93F7-3B903D942CDB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ForzaAnalytics", "ForzaAnalytics\ForzaAnalytics.csproj", "{371FFD8F-9410-47F0-93F7-3B903D942CDB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sql", "sql", "{05A6F155-170B-49C8-A1EE-CE1CE71C4D19}"
+	ProjectSection(SolutionItems) = preProject
+		sql\dbo.Car.Table.sql = sql\dbo.Car.Table.sql
+		sql\dbo.cars_import.Table.sql = sql\dbo.cars_import.Table.sql
+		sql\dbo.ClearAll.StoredProcedure.sql = sql\dbo.ClearAll.StoredProcedure.sql
+		sql\dbo.ClearSessions.StoredProcedure.sql = sql\dbo.ClearSessions.StoredProcedure.sql
+		sql\dbo.DeleteSession.StoredProcedure.sql = sql\dbo.DeleteSession.StoredProcedure.sql
+		sql\dbo.DetectSessions.StoredProcedure.sql = sql\dbo.DetectSessions.StoredProcedure.sql
+		sql\dbo.EstimateTrackFromSessions.StoredProcedure.sql = sql\dbo.EstimateTrackFromSessions.StoredProcedure.sql
+		sql\dbo.GuessTrackFromSession.StoredProcedure.sql = sql\dbo.GuessTrackFromSession.StoredProcedure.sql
+		sql\dbo.Lap.Table.sql = sql\dbo.Lap.Table.sql
+		sql\dbo.LapInfo.View.sql = sql\dbo.LapInfo.View.sql
+		sql\dbo.Packet.Table.sql = sql\dbo.Packet.Table.sql
+		sql\dbo.Session.Table.sql = sql\dbo.Session.Table.sql
+		sql\dbo.SessionInfo.View.sql = sql\dbo.SessionInfo.View.sql
+		sql\dbo.Track.Table.sql = sql\dbo.Track.Table.sql
+		sql\ForzaAnalytics.Database.sql = sql\ForzaAnalytics.Database.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,7 +1,9 @@
 ﻿using System.Net.Sockets;
+using System.Runtime.InteropServices;
 
 namespace ForzaAnalytics
 {
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
     internal struct Packet
     {
         // Sled
@@ -65,10 +67,10 @@ namespace ForzaAnalytics
         public int CarPerformanceIndex { get; } // Between 100 (slowest car) and 999 (fastest car) inclusive // u
         public int DrivetrainType { get; } // Corresponds to EDrivetrainType {get;} 0 = FWD, 1 = RWD, 2 = AWD // u
         public int NumCylinders { get; } // Number of cylinders in the engine // u
-        public int CarCategory { get; }
+        //public int CarCategory { get; }
 
-        public int _unknown1 { get; } // u
-        public int _unknown2 { get; } // u
+        //public int _unknown1 { get; } // u
+        //public int _unknown2 { get; } // u
 
         // Dash
         public float PositionX { get; }
@@ -98,8 +100,15 @@ namespace ForzaAnalytics
         public byte Gear { get; }
         sbyte _Steer;
         public short Steer => _Steer;
-        public byte NormalDrivingLine { get; }
-        public byte NormalAiBrakeDifference { get; }
+        sbyte _NormalDrivingLine;
+        public short NormalDrivingLine => _NormalDrivingLine;
+        sbyte _NormalAiBrakeDifference;
+        public short NormalAiBrakeDifference => _NormalAiBrakeDifference;
+        public float TireWearFrontLeft  { get; }
+        public float TireWearFrontRight { get; }
+        public float TireWearRearLeft { get; }
+        public float TireWearRearRight { get; }
+        public int TrackOrdinal { get; }
 
         public static unsafe Packet GetPacket(UdpReceiveResult p)
         {

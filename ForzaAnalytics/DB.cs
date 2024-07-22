@@ -36,17 +36,17 @@ namespace ForzaAnalytics
 
         static async Task CreateTable<T>(SqlConnection dbSql)
         {
-            //var cmd = $"CREATE TABLE {TableName} (Id int IDENTITY, Time datetimeoffset(7) DEFAULT(SYSDATETIMEOFFSET()), {string.Join(", ", GetFields().Select(x => $"{x.name} {typemap[x.type]} NOT NULL"))})";
+            var cmd = $"CREATE TABLE {TableName} (Id int IDENTITY, Time datetimeoffset(7) DEFAULT(SYSDATETIMEOFFSET()), {string.Join(", ", GetFields().Select(x => $"{x.name} {typemap[x.type]} NOT NULL"))})";
 
-            //await dbSql.ExecuteAsync(cmd);
+            await dbSql.ExecuteAsync(cmd);
 
-            //IEnumerable<(string name, Type type)> GetFields()
-            //{
-            //	foreach (var f in typeof(T).GetProperties())
-            //	{
-            //		yield return (f.Name, f.PropertyType);
-            //	}
-            //}
+            IEnumerable<(string name, Type type)> GetFields()
+            {
+                foreach (var f in typeof(T).GetProperties())
+                {
+                    yield return (f.Name, f.PropertyType);
+                }
+            }
         }
 
         internal static string CreateInsertCmd()
